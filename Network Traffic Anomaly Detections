@@ -1,0 +1,16 @@
+title: Network Traffic Anomaly Detection
+description: Detects potential security threats based on anomalies in network traffic
+author: Your Name
+logsource:
+  product: firewall
+  service: security
+detection:
+  selection:
+    event_type: Network Traffic
+  condition:
+    - selection:
+        bytes_in: '>100000'
+        bytes_out: '>100000'
+      action:
+        - message: "High volume of network traffic detected"
+          level: warning
