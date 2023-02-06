@@ -1,0 +1,16 @@
+title: Phishing Email Detection
+description: Detects potential phishing emails
+author: Your Name
+logsource:
+  product: email
+  service: security
+detection:
+  selection:
+    event_type: Email
+  condition:
+    - selection:
+        sender_address: *@*.com
+        subject: *wire transfer*
+      action:
+        - message: "Potential phishing email detected"
+          level: high
