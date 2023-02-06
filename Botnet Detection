@@ -1,0 +1,17 @@
+title: Botnet Detection
+description: Detects potential botnets
+author: Your Name
+logsource:
+  product: network
+  service: security
+detection:
+  selection:
+    event_type: Network Traffic
+  condition:
+    - selection:
+        bytes_in: '>100000'
+        bytes_out: '>100000'
+        destination_ip: *.*.*.*
+      action:
+        - message: "Potential botnet detected"
+          level: high
