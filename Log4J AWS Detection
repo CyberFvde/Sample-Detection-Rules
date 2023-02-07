@@ -1,0 +1,6 @@
+rule unauthorized_access_attempts_aws {
+  // Search for log messages indicating unauthorized access attempts
+  condition: (("Unauthorized access attempt" in message) or ("Access Denied" in message) or ("Authentication Failed" in message)) and (("AWS" in message) or ("Amazon Web Services" in message))
+  // Alert when the condition is met
+  alert: unauthorized_access_attempts_aws_alert
+}
