@@ -1,0 +1,9 @@
+rule detect_known_malicious_domains {
+    meta:
+        description = "Detects known malicious domains"
+    strings:
+        $malicious_domain1 = "bad-domain1.com"
+        $malicious_domain2 = "bad-domain2.net"
+    condition:
+        any of them
+}
