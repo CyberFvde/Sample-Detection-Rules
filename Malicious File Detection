@@ -1,0 +1,9 @@
+rule detect_malicious_file_types {
+    meta:
+        description = "Detects common file types associated with malware"
+    strings:
+        $file_types = { 4D 5A 90 00 }
+        $file_types2 = { 50 4B 03 04 }
+    condition:
+        any of them
+}
